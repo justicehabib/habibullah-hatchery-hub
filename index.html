@@ -1,185 +1,237 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#123b2b">
-<title>Habibullah Hatchery Hub | Products & Orders</title>
+<title>Habibullah Hatchery Hub</title>
 <style>
-:root{--green:#123b2b;--green2:#1e6b49;--gold:#d8b45a;--cream:#f7f6f0;--ink:#17231d;--muted:#66736b;--line:#e2e7e2;--white:#fff}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
-header{background:var(--green);color:#fff;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.brand{font-size:1.2rem;font-weight:800}.brand span{display:block;font-size:.78rem;font-weight:400;color:#e9dfbd;margin-top:4px}
-nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:white;text-decoration:none;font-size:.92rem}
-.hero{padding:54px 5%;background:linear-gradient(120deg,#123b2b,#1f6346);color:#fff}
-.hero-inner{max-width:1100px;margin:auto;display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center}
-.eyebrow{color:#f1d58c;text-transform:uppercase;letter-spacing:2px;font-size:.75rem;font-weight:bold}
-h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.06;margin:12px 0}
-.hero p{line-height:1.7;color:#e7eee9;max-width:620px}
-.hero-card{background:#fff;color:var(--ink);padding:24px;border-radius:18px;box-shadow:0 12px 35px #0002}
-.hero-card strong{font-size:1.1rem}.hero-card p{color:var(--muted)}
-.btn{border:0;border-radius:10px;padding:12px 16px;font-weight:bold;cursor:pointer;display:inline-block;text-decoration:none;text-align:center}
-.btn-primary{background:var(--gold);color:#1b241e}.btn-green{background:var(--green);color:white}.btn-light{background:#edf2ed;color:var(--green)}
-main{max-width:1100px;margin:auto;padding:32px 5% 60px}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;flex-wrap:wrap;margin-bottom:18px}
-h2{margin:0 0 8px;font-size:1.7rem}.muted{color:var(--muted);line-height:1.55}
-.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}.toolbar input,.toolbar select,.field input,.field textarea,.field select{padding:12px;border:1px solid var(--line);border-radius:9px;width:100%;font:inherit;background:#fff}
-.toolbar input{max-width:320px}.toolbar select{max-width:220px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.product{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
-.product img{width:100%;height:210px;object-fit:cover;background:#e8eee8;cursor:pointer}
-.product-content{padding:16px;display:flex;flex-direction:column;gap:9px;flex:1}
-.product h3{margin:0;font-size:1.08rem}.price{font-weight:800;color:var(--green);font-size:1.2rem}.product .desc{color:var(--muted);font-size:.9rem;line-height:1.45;flex:1}
-.product-actions{display:flex;gap:8px}.product-actions button{flex:1}
-.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:28px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-.step{background:#f6f8f5;padding:16px;border-radius:12px}.step b{display:block;margin-bottom:7px}
-footer{background:#102e22;color:#e7eee9;padding:24px 5%;text-align:center;font-size:.9rem}
-.modal-backdrop{position:fixed;inset:0;background:#06170fcc;display:none;align-items:center;justify-content:center;padding:16px;z-index:20;overflow:auto}
-.modal-backdrop.open{display:flex}.modal{background:#fff;border-radius:16px;padding:22px;width:min(650px,100%);max-height:92vh;overflow:auto;position:relative}
-.close{position:absolute;right:14px;top:12px;border:0;background:#eef2ee;border-radius:8px;padding:8px 11px;cursor:pointer}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{margin:12px 0}.field label{display:block;font-weight:bold;font-size:.9rem;margin-bottom:6px}
-.total-box{background:#f2f6f1;padding:15px;border-radius:12px;margin:14px 0}.bank-box{border:1px dashed #9eae9f;background:#f8faf6;padding:15px;border-radius:12px;line-height:1.8}
-.notice{font-size:.85rem;color:#805b12;background:#fff7dc;padding:12px;border-radius:10px;line-height:1.5}
-.hidden{display:none!important}.admin-list{display:grid;gap:12px}.order-item{border:1px solid var(--line);border-radius:12px;padding:14px}.status{font-size:.8rem;background:#fff2cc;color:#795500;padding:5px 8px;border-radius:20px;display:inline-block}
-.lightbox-img{width:100%;max-height:65vh;object-fit:contain}
-@media(max-width:760px){.hero-inner{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.hero{padding:38px 5%}}
-@media(max-width:500px){.grid{grid-template-columns:1fr}.product img{height:230px}.form-grid{grid-template-columns:1fr}.toolbar input,.toolbar select{max-width:none;width:100%}header{align-items:flex-start}}
+:root {
+  --green: #174b2b;
+  --gold: #d7ad43;
+  --cream: #fffaf0;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f8f3;
+  color: #263529;
+}
+header {
+  background: var(--green);
+  color: white;
+  padding: 22px 15px;
+  text-align: center;
+}
+header h1 { margin: 0 0 8px; }
+nav a {
+  color: white;
+  margin: 0 8px;
+  text-decoration: none;
+}
+.hero {
+  background: var(--cream);
+  text-align: center;
+  padding: 35px 15px;
+}
+.hero h2 { color: var(--green); font-size: 30px; }
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px 15px;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px #00000012;
+  padding-bottom: 18px;
+}
+.product-photo {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #e8f0e5;
+  display: block;
+}
+.photo-placeholder {
+  height: 180px;
+  background: #e8f0e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 65px;
+}
+.card h3, .card p { padding: 0 15px; }
+.card h3 { color: var(--green); }
+.price {
+  font-size: 23px;
+  font-weight: bold;
+  color: var(--green);
+}
+.btn {
+  display: block;
+  margin: 12px 15px 0;
+  padding: 12px;
+  border-radius: 7px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+}
+.order { background: var(--green); color: white; }
+.whatsapp { background: #168b45; color: white; }
+.bank {
+  background: white;
+  border-radius: 12px;
+  padding: 22px;
+  line-height: 1.9;
+}
+.notice {
+  background: #fff2cc;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+footer {
+  background: var(--green);
+  color: white;
+  padding: 25px 15px;
+  text-align: center;
+}
 </style>
 </head>
 <body>
+
 <header>
-  <div class="brand">HABIBULLAH HATCHERY HUB <span>Day-old chicks • Hatchery & poultry products</span></div>
-  <nav><a href="#products">Products</a><a href="#how">How to order</a><a href="#contact">Contact</a><a href="#admin" id="adminLink">Orders</a></nav>
+  <h1>🐣 Habibullah Hatchery Hub</h1>
+  <p>Quality Day-Old Chicks • Hatchery Services • Trusted Farm Solutions</p>
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#payment">Payment</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
+
 <section class="hero">
- <div class="hero-inner">
-  <div><div class="eyebrow">Welcome to our store</div><h1>Find your product.<br>Order with confidence.</h1>
-   <p>View product photos and prices, submit your order, transfer payment to our bank account, and wait for payment verification before goods are released.</p>
-   <a class="btn btn-primary" href="#products">Browse products</a>
-  </div>
-  <div class="hero-card"><strong>Safe payment process</strong><p>Every order receives a reference. We verify the transfer in our Lotus Bank account before confirming collection or delivery.</p><button class="btn btn-green" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">See how it works</button></div>
- </div>
+  <h2>Your Trusted Poultry Partner</h2>
+  <p>Buy day-old chicks and book egg incubation services.</p>
+  <p>Healthy birds. Fair prices. Easy WhatsApp ordering.</p>
+  <a class="btn whatsapp"
+     style="display:inline-block"
+     href="https://wa.me/2348035990419"
+     target="_blank" rel="noopener">
+     Chat With Us on WhatsApp
+  </a>
 </section>
-<main>
- <section id="products">
-  <div class="section-head"><div><h2>Our Products</h2><div class="muted">Select a product to start your order. Contact us to confirm availability and current prices. Product prices can be added by editing the product list.</div></div></div>
-  <div class="toolbar"><input id="search" placeholder="Search products..." oninput="renderProducts()"><select id="category" onchange="renderProducts()"><option value="">All categories</option><option>Farm</option><option>Food</option><option>Other</option></select></div>
-  <div class="grid" id="productGrid"></div>
- </section>
- <section id="how" class="panel"><h2>How payment and release works</h2><div class="muted">A simple process designed to help customers and protect your business.</div>
-  <div class="steps">
-   <div class="step"><b>1. Choose and order</b><span class="muted">Choose products, quantity, and enter your contact and delivery details.</span></div>
-   <div class="step"><b>2. Transfer payment</b><span class="muted">Use the bank details shown on the order screen. Include your order reference in the transfer narration if supported.</span></div>
-   <div class="step"><b>3. Wait for approval</b><span class="muted">Send the transfer reference/receipt. The seller checks the actual bank credit and approves before release.</span></div>
+
+<section class="container" id="products">
+  <h2 style="color:#174b2b">Our Products and Prices</h2>
+
+  <div class="products">
+
+    <!-- PRODUCT 1 -->
+    <div class="card">
+      <div class="photo-placeholder">🐤</div>
+      <h3>Local Day-Old Chicks</h3>
+      <p>Kazar gida</p>
+      <p class="price">₦500 <small>/ chick</small></p>
+      <a class="btn order" href="https://wa.me/2348035990419?text=Hello%2C%20I%20want%20to%20order%20Local%20Day-Old%20Chicks%20(Kazar%20gida)%20at%20N500%20per%20chick.%20Please%20confirm%20availability%20and%20delivery%20fee."
+      target="_blank" rel="noopener">Order on WhatsApp</a>
+    </div>
+
+    <!-- PRODUCT 2 -->
+    <div class="card">
+      <div class="photo-placeholder">🪶</div>
+      <h3>Local Guinea Fowl Day-Old Chicks</h3>
+      <p>Zabuwan gida</p>
+      <p class="price">₦800 <small>/ chick</small></p>
+      <a class="btn order" href="https://wa.me/2348035990419?text=Hello%2C%20I%20want%20to%20order%20Local%20Guinea%20Fowl%20Day-Old%20Chicks%20(Zabuwan%20gida)%20at%20N800%20per%20chick.%20Please%20confirm%20availability%20and%20delivery%20fee."
+      target="_blank" rel="noopener">Order on WhatsApp</a>
+    </div>
+
+    <!-- PRODUCT 3 -->
+    <div class="card">
+      <div class="photo-placeholder">🐥</div>
+      <h3>Noiler Day-Old Chicks</h3>
+      <p>Day-old poultry chicks</p>
+      <p class="price">₦1,300 <small>/ chick</small></p>
+      <a class="btn order" href="https://wa.me/2348035990419?text=Hello%2C%20I%20want%20to%20order%20Noiler%20Day-Old%20Chicks%20at%20N1300%20per%20chick.%20Please%20confirm%20availability%20and%20delivery%20fee."
+      target="_blank" rel="noopener">Order on WhatsApp</a>
+    </div>
+
+    <!-- PRODUCT 4 -->
+    <div class="card">
+      <div class="photo-placeholder">🦃</div>
+      <h3>Turkey Poults</h3>
+      <p>Young turkeys</p>
+      <p class="price">₦1,800 <small>/ bird</small></p>
+      <a class="btn order" href="https://wa.me/2348035990419?text=Hello%2C%20I%20want%20to%20order%20Turkey%20Poults%20at%20N1800%20per%20bird.%20Please%20confirm%20availability%20and%20delivery%20fee."
+      target="_blank" rel="noopener">Order on WhatsApp</a>
+    </div>
+
+    <!-- PRODUCT 5 -->
+    <div class="card">
+      <div class="photo-placeholder">🥚</div>
+      <h3>Egg Incubation Service</h3>
+      <p>Egg hatching service</p>
+      <p class="price">₦300 <small>/ egg</small></p>
+      <a class="btn order" href="https://wa.me/2348035990419?text=Hello%2C%20I%20want%20to%20book%20your%20Egg%20Incubation%20Service%20at%20N300%20per%20egg.%20Please%20confirm%20availability%20and%20terms."
+      target="_blank" rel="noopener">Book on WhatsApp</a>
+    </div>
+
+    <!-- PRODUCT 6 -->
+    <div class="card">
+      <div class="photo-placeholder">🐦</div>
+      <h3>Broiler Guinea Fowl Day-Old Chicks</h3>
+      <p>Zabuwan gona</p>
+      <p class="price">₦1,300 <small>/ item</small></p>
+      <a class="btn order" href="https://wa.me/2348035990419?text=Hello%2C%20I%20want%20to%20order%20Broiler%20Guinea%20Fowl%20Day-Old%20Chicks%20(Zabuwan%20gona)%20at%20N1300%20per%20item.%20Please%20confirm%20availability%20and%20delivery%20fee."
+      target="_blank" rel="noopener">Order on WhatsApp</a>
+    </div>
+
   </div>
- </section>
- <section id="contact" class="panel"><h2>Contact the seller</h2><p class="muted">WhatsApp: <strong id="contactPhone">08033015247</strong><br>Email: <strong>habibullahnuhu@gmail.com</strong></p><a class="btn btn-green" id="contactBtn" href="https://wa.me/2348033015247" target="_blank" rel="noopener">Chat on WhatsApp</a></section>
- <section id="admin" class="panel"><h2>Seller order dashboard</h2><p class="muted">This demo saves orders only in this browser on this device. It is not a secure online admin system. For live multi-customer use, connect a backend/database and protect the dashboard with a password.</p>
-  <button class="btn btn-green" onclick="showAdmin()">View orders on this device</button> <button class="btn btn-light" onclick="exportOrders()">Export orders (CSV)</button>
-  <div id="adminOrders" class="admin-list" style="margin-top:16px"></div>
- </section>
-</main>
-<footer>© <span id="year"></span> Habibullah Hatchery Hub. Payment must be verified before goods are released.</footer>
 
-<div class="modal-backdrop" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
- <div class="modal"><button class="close" onclick="closeModal('orderModal')">✕</button><h2 id="orderTitle">Place your order</h2><p class="muted" id="chosenProduct"></p>
-  <form id="orderForm">
-   <div class="form-grid">
-    <div class="field"><label for="customer">Full name *</label><input id="customer" required></div>
-    <div class="field"><label for="phone">Phone / WhatsApp *</label><input id="phone" required inputmode="tel"></div>
-    <div class="field"><label for="qty">Quantity *</label><input id="qty" type="number" min="1" value="1" required oninput="updateTotal()"></div>
-    <div class="field"><label for="delivery">Delivery method *</label><select id="delivery" required><option value="Pickup">Pickup / collection</option><option value="Delivery">Delivery (cost to be confirmed)</option></select></div>
-   </div>
-   <div class="field"><label for="address">Delivery address / notes</label><textarea id="address" rows="2" placeholder="Enter address if delivery is required"></textarea></div>
-   <div class="total-box"><div>Order total</div><strong id="orderTotal">₦0</strong><div class="muted" id="deliveryNote">Delivery charges, if any, are confirmed separately.</div></div>
-   <button class="btn btn-green" type="submit" style="width:100%">Create order & show payment details</button>
-  </form>
- </div>
-</div>
+  <div class="notice">
+    <strong>Delivery:</strong> Delivery charges are separate.
+    Please contact us to confirm the delivery fee, availability
+    and total amount before making payment.
+  </div>
+</section>
 
-<div class="modal-backdrop" id="paymentModal" role="dialog" aria-modal="true">
- <div class="modal"><button class="close" onclick="closeModal('paymentModal')">✕</button><h2>Payment instructions</h2><p class="muted">Your order has been recorded on this device. Pay the exact amount below, then submit your transfer reference to the seller.</p>
-  <div class="total-box"><div>Order reference</div><strong id="payOrderId"></strong><div style="margin-top:8px">Amount to transfer</div><strong id="payTotal"></strong></div>
-  <div class="bank-box"><strong>Bank transfer details</strong><br>Bank: <span id="bankName">YOUR BANK NAME</span><br>Account name: <span id="accountName">YOUR ACCOUNT NAME</span><br>Account number: <strong id="accountNumber">YOUR ACCOUNT NUMBER</strong></div>
-  <div class="notice" style="margin-top:12px">Confirm that these bank details are correct before publishing this website. Never ask customers to share their PIN, password, or OTP. A receipt is not proof of cleared funds.</div>
-  <form id="paymentForm">
-   <div class="field"><label for="transferRef">Transfer reference / receipt details *</label><input id="transferRef" required placeholder="Enter bank transfer reference"></div>
-   <div class="field"><label for="paidName">Name used for transfer</label><input id="paidName" placeholder="Name on the sending account"></div>
-   <button class="btn btn-green" type="submit" style="width:100%">Submit payment details via WhatsApp</button>
-  </form>
-  <p class="muted" style="font-size:.85rem">Order status remains Pending Verification until the seller confirms the money has arrived.</p>
- </div>
-</div>
-<div class="modal-backdrop" id="imageModal" role="dialog" aria-modal="true"><div class="modal"><button class="close" onclick="closeModal('imageModal')">✕</button><img id="lightboxImage" class="lightbox-img" alt="Product preview"><h3 id="lightboxTitle"></h3></div></div>
+<section class="container" id="payment">
+  <h2 style="color:#174b2b">Bank Payment Details</h2>
+  <div class="bank">
+    <strong>Bank:</strong> Lotus Bank<br>
+    <strong>Account Name:</strong> Habibullah Hatchery Hub<br>
+    <strong>Account Number:</strong> 1014723732
+    <p>Please confirm your order and total payment with us before transferring.</p>
+  </div>
+</section>
 
-<script>
-// EDIT THESE SETTINGS BEFORE PUBLISHING:
-const STORE = {
-  bankName: "Lotus Bank",
-  accountName: "Habibullah Hatchery Hub",
-  accountNumber: "1014723732",
-  whatsapp: "2348035990419", // international format, no + or spaces
-  phoneDisplay: "08035990419",
-  currency: "₦"
-};
-// Sample products: edit names, prices, descriptions, categories and photo URLs here.
-const products = [
- {id:"P001",name:"Day-old Chicks",category:"Farm",price:0,description:"Contact us to confirm breed, availability, and current price before ordering.",image:"https://images.unsplash.com/photo-1551986782-d0169b3f8fa7?auto=format&fit=crop&w=900&q=80"},
- {id:"P002",name:"Hatchery Services",category:"Farm",price:0,description:"Ask us about egg incubation, hatching services, capacity, and current rates.",image:"https://images.unsplash.com/photo-1493962853295-0fd70327578a?auto=format&fit=crop&w=900&q=80"},
- {id:"P003",name:"Poultry Products",category:"Farm",price:0,description:"Contact us for poultry equipment, supplies, and current product prices.",image:"https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=900&q=80"}
-];
-let selectedProduct = null, currentOrder = null;
-const money = n => STORE.currency + Number(n).toLocaleString("en-NG");
-function safe(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-function renderProducts(){
- const q=document.getElementById("search").value.toLowerCase(), cat=document.getElementById("category").value;
- const list=products.filter(p=>(!cat||p.category===cat)&&(p.name+" "+p.description).toLowerCase().includes(q));
- document.getElementById("productGrid").innerHTML=list.map(p=>`<article class="product">
- <img src="${safe(p.image)}" alt="${safe(p.name)}" onclick="viewImage('${p.id}')" onerror="this.src='https://placehold.co/800x500/e8eee8/123b2b?text=Add+Product+Photo'">
- <div class="product-content"><h3>${safe(p.name)}</h3><div class="price">${p.price > 0 ? money(p.price) : "Price on request"}</div><div class="desc">${safe(p.description)}</div>
- <div class="product-actions"><button class="btn btn-green" onclick="startOrder('${p.id}')">Order now</button><button class="btn btn-light" onclick="viewImage('${p.id}')">View photo</button></div></div></article>`).join("")||'<p class="muted">No products match your search.</p>';
-}
-function startOrder(id){selectedProduct=products.find(p=>p.id===id);document.getElementById("chosenProduct").textContent=selectedProduct.name+" — "+(selectedProduct.price > 0 ? money(selectedProduct.price)+" each" : "Price to be confirmed");document.getElementById("qty").value=1;updateTotal();openModal("orderModal");}
-function updateTotal(){if(!selectedProduct)return;const q=Math.max(1,parseInt(document.getElementById("qty").value||"1",10));document.getElementById("orderTotal").textContent=selectedProduct.price > 0 ? money(q*selectedProduct.price) : "Price to be confirmed by seller";}
-function openModal(id){document.getElementById(id).classList.add("open")}
-function closeModal(id){document.getElementById(id).classList.remove("open")}
-function viewImage(id){const p=products.find(x=>x.id===id);document.getElementById("lightboxImage").src=p.image;document.getElementById("lightboxTitle").textContent=p.name;openModal("imageModal")}
-function getOrders(){try{return JSON.parse(localStorage.getItem("habibullah_store_orders")||"[]")}catch(e){return []}}
-function saveOrders(orders){localStorage.setItem("habibullah_store_orders",JSON.stringify(orders))}
-document.getElementById("orderForm").addEventListener("submit",e=>{
- e.preventDefault();const qty=Math.max(1,parseInt(document.getElementById("qty").value,10));
- const id="HH-"+Date.now().toString().slice(-8);
- currentOrder={id,productId:selectedProduct.id,product:selectedProduct.name,unitPrice:selectedProduct.price,qty,total:qty*selectedProduct.price,
- customer:document.getElementById("customer").value.trim(),phone:document.getElementById("phone").value.trim(),delivery:document.getElementById("delivery").value,
- address:document.getElementById("address").value.trim(),status:"Pending Verification",created:new Date().toLocaleString(),transferRef:"",paidName:""};
- const orders=getOrders();orders.unshift(currentOrder);saveOrders(orders);
- document.getElementById("payOrderId").textContent=id;document.getElementById("payTotal").textContent=currentOrder.total > 0 ? money(currentOrder.total) : "Price to be confirmed by seller";
- closeModal("orderModal");document.getElementById("bankName").textContent=STORE.bankName;document.getElementById("accountName").textContent=STORE.accountName;document.getElementById("accountNumber").textContent=STORE.accountNumber;openModal("paymentModal");
-});
-document.getElementById("paymentForm").addEventListener("submit",e=>{
- e.preventDefault();if(!currentOrder)return;
- currentOrder.transferRef=document.getElementById("transferRef").value.trim();currentOrder.paidName=document.getElementById("paidName").value.trim();
- const orders=getOrders();const i=orders.findIndex(o=>o.id===currentOrder.id);if(i>=0){orders[i]=currentOrder;saveOrders(orders)}
- const msg=`ORDER / PAYMENT DETAILS - HABIBULLAH HATCHERY HUB%0AOrder: ${currentOrder.id}%0AProduct: ${currentOrder.product}%0AQuantity: ${currentOrder.qty}%0ATotal: ${currentOrder.total > 0 ? money(currentOrder.total) : "PRICE TO BE CONFIRMED"}%0ACustomer: ${currentOrder.customer}%0APhone: ${currentOrder.phone}%0ATransfer reference: ${currentOrder.transferRef}%0AName used: ${currentOrder.paidName||"Not provided"}%0ADelivery: ${currentOrder.delivery}%0AAddress/notes: ${currentOrder.address||"None"}%0A%0APlease verify receipt of funds.`;
- closeModal("paymentModal");window.open(`https://wa.me/${STORE.whatsapp}?text=${msg}`,"_blank","noopener");alert("Your WhatsApp message is ready. Send it to the seller. Your order is still pending until payment is verified.");
-});
-function showAdmin(){
- const wrap=document.getElementById("adminOrders"),orders=getOrders();
- if(!orders.length){wrap.innerHTML='<p class="muted">No orders saved on this browser yet.</p>';return}
- wrap.innerHTML=orders.map(o=>`<div class="order-item"><span class="status">${safe(o.status)}</span><h3>${safe(o.id)} — ${safe(o.product)}</h3><p class="muted">Customer: ${safe(o.customer)} · ${safe(o.phone)}<br>Quantity: ${o.qty} · Total: ${money(o.total)}<br>Created: ${safe(o.created)}<br>Transfer ref: ${safe(o.transferRef||"Not submitted")}<br>Delivery: ${safe(o.delivery)} ${safe(o.address||"")}</p><button class="btn btn-green" onclick="setStatus('${o.id}','Payment Verified')">Mark payment verified</button> <button class="btn btn-light" onclick="setStatus('${o.id}','Goods Released')">Mark goods released</button></div>`).join("");
-}
-function setStatus(id,status){const orders=getOrders();const o=orders.find(x=>x.id===id);if(!o)return;if(status==="Payment Verified"&&!confirm("Have you checked your bank account and confirmed the funds arrived?"))return;if(status==="Goods Released"&&!confirm("Confirm goods have been released or dispatched?"))return;o.status=status;saveOrders(orders);showAdmin()}
-function exportOrders(){
- const orders=getOrders();if(!orders.length){alert("No orders to export.");return}
- const cols=["id","created","product","qty","total","customer","phone","delivery","address","transferRef","paidName","status"];
- const csv=[cols.join(","),...orders.map(o=>cols.map(k=>'"'+String(o[k]??"").replace(/"/g,'""')+'"').join(","))].join("\n");
- const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download="habibullah-store-orders.csv";a.click();URL.revokeObjectURL(a.href);
-}
-document.getElementById("year").textContent=new Date().getFullYear();
-document.getElementById("contactPhone").textContent=STORE.phoneDisplay;
-document.getElementById("contactBtn").href="https://wa.me/"+STORE.whatsapp;
-renderProducts();
-</script>
+<section class="container" id="contact">
+  <h2 style="color:#174b2b">Contact Us</h2>
+  <p><strong>Business:</strong> Habibullah Hatchery Hub</p>
+  <p><strong>WhatsApp:</strong> 08035990419</p>
+  <p><strong>Location:</strong> State Low Cost, behind Alwahda Table Water,
+  bypass, Azare, Bauchi State, Nigeria.</p>
+  <a class="btn whatsapp"
+     href="https://wa.me/2348035990419?text=Hello%20Habibullah%20Hatchery%20Hub"
+     target="_blank" rel="noopener">
+     Send Us a Message
+  </a>
+</section>
+
+<footer>
+  <h3>Habibullah Hatchery Hub 🐣</h3>
+  <p>Quality Day-Old Chicks • Healthy Birds • Trusted Farm Solutions</p>
+  <small>© Habibullah Hatchery Hub</small>
+</footer>
+
 </body>
 </html>
